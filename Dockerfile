@@ -13,6 +13,10 @@ RUN \
         --userconfig=$HOME/.cnpmrc \
         install hexo-cli -g
 
+RUN npm install -g gulp
+
+RUN yum install -y vim
+
 ENV "TZ=Asia/Shanghai"
 
 WORKDIR /Hexo/blog
@@ -33,6 +37,11 @@ RUN \
         npm install hexo-git-backup --save \n \
         npm install hexo-algoliasearch --save \n \
         npm install hexo-asset-image --save \n \
+        npm install gulp --save \n \
+        npm install gulp-htmlclean --save \n \
+        npm install gulp-htmlmin --save \n \
+        npm install gulp-minify-css --save \n \
+        npm install gulp-uglify --save \n \
 	hexo server&" >> /Hexo/init.sh
 
 RUN \
